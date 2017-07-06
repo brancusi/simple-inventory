@@ -1,0 +1,19 @@
+<div class="">
+  {{model.name}}
+</div>
+
+<button type="button" name="button" {{action 'randomCreate'}}>Random Create Item</button>
+{{one-way-input tempName update=(action (mut tempName))}}
+
+<div class="">
+  <ol>
+    {{#each model.items as |item|}}
+      <li>
+        {{item.name}} - {{one-way-input item.q update=(action update item 'q')}}
+      </li>
+    {{/each}}
+  </ol>
+</div>
+
+
+<button type="button" name="button" {{action submit model}}>Submit Inventory</button>
