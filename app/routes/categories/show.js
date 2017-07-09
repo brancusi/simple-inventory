@@ -25,10 +25,16 @@ export default Ember.Route.extend({
       const payload = {
         url:config.slackChannel,
         data: JSON.stringify({text}),
-        type: "POST"
+        type: 'POST'
       };
 
       Ember.$.ajax(payload)
+    },
+
+    deleteItem(itemId) {
+      this.store.findRecord('item', itemId).then((item) => {
+        item.destroyRecord();
+      })
     }
   }
 });

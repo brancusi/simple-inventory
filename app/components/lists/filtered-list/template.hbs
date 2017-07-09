@@ -1,0 +1,9 @@
+{{one-way-input query update=(action (mut query))}}
+
+<ol>
+  {{#each filteredItems as |item|}}
+    <li>
+      {{link-to item.name 'items.show' item.id}}
+    </li>
+  {{/each}}
+</ol>

@@ -10,6 +10,10 @@ Router.map(function() {
   this.route('categories', function() {
     this.route('show', {path: ':category_id'});
   });
+
+  this.route('items', function() {
+    this.route('show', {path: ':item_id'});
+  });
 });
 
 export default Router;

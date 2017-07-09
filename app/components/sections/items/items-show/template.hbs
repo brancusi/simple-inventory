@@ -1,0 +1,7 @@
+<h3>{{model.name}}</h3>
+
+<h4>How many are you pulling?</h4>
+
+{{one-way-input update=(action update model 'q')}}
+
+<button {{action submit model}}>Submit</button>

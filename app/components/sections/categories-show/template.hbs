@@ -1,19 +1,16 @@
-<div class="">
-  {{model.name}}
-</div>
+<h3>{{model.name}}</h3>
 
-<button type="button" name="button" {{action 'randomCreate'}}>Random Create Item</button>
+<button {{action 'randomCreate'}}>Create Item</button>
 {{one-way-input tempName update=(action (mut tempName))}}
 
-<div class="">
-  <ol>
-    {{#each model.items as |item|}}
-      <li>
-        {{item.name}} - {{one-way-input item.q update=(action update item 'q')}}
-      </li>
-    {{/each}}
-  </ol>
-</div>
+<ol>
+  {{#each model.items as |item|}}
+    <li>
+      {{item.name}} - {{one-way-input item.q update=(action update item 'q')}} <button {{action deleteItem item.id}}>Delete Item</button>
+    </li>
+  {{/each}}
+</ol>
 
 
-<button type="button" name="button" {{action submit model}}>Submit Inventory</button>
+
+<button {{action submit model}}>Submit</button>
